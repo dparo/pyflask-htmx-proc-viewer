@@ -1,16 +1,24 @@
-from flask import Flask, render_template, render_template_string
+from flask import Flask, render_template, render_template_string, send_from_directory
 import os
 from dataclasses import dataclass
 from markupsafe import escape
 import signal
-from flask import request
+from flask import request, send_from_directory
 
 app = Flask(__name__)
+
 
 @dataclass
 class Proc:
     pid: int
     argv: str
+
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 @app.route("/api/pid/<int:id>", methods=['DELETE'])
