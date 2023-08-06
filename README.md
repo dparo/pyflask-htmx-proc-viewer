@@ -16,7 +16,7 @@ Htmx allows to hotswap snippets of HTML by invoking HTTP endpoints when specific
 Allowing the frontend application to be almost JS (except the HTMX runtime itself) and JSON free.
 By using Server Side Rendering (SSR), the latency required for first paint is reduced.
 
-The responsability of validation and styling, is however, is completely shifted to the server.
+The responsability of validation and styling, however, is completely shifted to the server.
 
 
 ## Preview
