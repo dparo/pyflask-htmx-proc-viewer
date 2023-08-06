@@ -21,12 +21,7 @@
     <body class="p-20">
         <h1 class="text-3xl font-bold">FlaskApp</h1>
         <h2 class="text-2xl font-bold">Command runner</h2>
-        <div>
-            <textarea name="" id="cmdTextArea" cols="80" rows="5"></textarea>
-            <button hx-swap="none" hx-post="/api/cmd" hx-trigger="click" hx-vals='js:{cmd: document.getElementById("cmdTextArea").value}' >
-                Submit
-            </button>
-        </div>
+        {% include 'command_runner.xhtml' %}
         <h2 class="text-2xl font-bold">List of running processes</h2>
         {% include 'proc_list.xhtml' %}
     </body>

@@ -4,7 +4,7 @@ import subprocess
 from dataclasses import dataclass
 
 from flask import (Flask, make_response, render_template,
-                   render_template_string, request, send_from_directory)
+                   render_template_string, request, send_from_directory, Markup)
 
 app = Flask(__name__)
 
@@ -36,8 +36,9 @@ def kill_pid(id: int):
 
 @app.post("/api/cmd")
 def new_cmd():
-    subprocess.Popen(request.form["cmd"], shell=True)
-    response = make_response("")
+    new_proc = subprocess.Popen(request.form["cmd"], shell=True)
+    new_pid = new_proc.pid
+    response = make_response(Markup.escape(f'Created new process with pid {new_pid}'))
     response.headers["HX-Trigger"] = "evProcListRefresh"
     return response
 
@@ -53,7 +54,18 @@ def get_procs():
             with open(f"/proc/{p}/cmdline", "r") as f:
                 argv = f.read()
                 argv = argv.replace("\u0000", " ").strip()
-                cmds.append(Proc(p, argv))
+
+                # Skip Zombie (Z), Dead (X), Stopped (T) processes
+                with open(f"/proc/{p}/stat", "r") as f:
+                    stat = f.read().split()
+                    state_idx = 1
+                    while not stat[state_idx].endswith(')'):
+                        state_idx += 1
+                    state = stat[state_idx + 1]
+                    if state in ['R', 'S', 'I']: # Running, Sleeping, Idle
+                        print("STATE", state)
+                        cmds.append(Proc(p, argv))
+
         except Exception:
             pass
 

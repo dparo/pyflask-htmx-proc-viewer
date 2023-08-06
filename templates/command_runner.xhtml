@@ -1,0 +1,9 @@
+<div id="cmdRunnerBlock">
+    <textarea name="" id="cmdTextArea" cols="80" rows="5"></textarea>
+    <button hx-swap="innerHTML" hx-target="#processCreatedMsg" hx-post="/api/cmd" hx-trigger="click" hx-vals='js:{cmd: document.getElementById("cmdTextArea").value}' >
+        RUN
+    </button>
+
+    <div id="processCreatedMsg">
+    </div>
+</div>
