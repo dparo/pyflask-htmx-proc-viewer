@@ -2,6 +2,7 @@ import os
 import signal
 import subprocess
 from dataclasses import dataclass
+import shlex
 
 from flask import (Flask, make_response, render_template,
                    render_template_string, request, send_from_directory, Markup)
@@ -13,15 +14,6 @@ app = Flask(__name__)
 class Proc:
     pid: int
     argv: str
-
-
-@app.route("/favicon.ico")
-def favicon():
-    return send_from_directory(
-        os.path.join(app.root_path, "static"),
-        "favicon.ico",
-        mimetype="image/vnd.microsoft.icon",
-    )
 
 
 @app.delete("/api/pid/<int:id>")
