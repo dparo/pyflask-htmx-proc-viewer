@@ -1,0 +1,11 @@
+<ul class="list-disc" hx-get="/procs" hx-trigger="evProcListRefresh from:body" hx-swap="outerHTML">
+    {% for cmd in cmds %}
+        <li id="li-{{ cmd.pid }}">
+            {% for signal in ['SIGTERM', 'SIGINT', 'SIGKILL'] %}
+            <button hx-delete="/api/pid/{{ cmd.pid }}?signal={{ signal }}" hx-swap="outerHTML" hx-target="closest li"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{{ signal }}</button>
+            {% endfor %}
+            {{ cmd.pid }} - {{ cmd.argv }}
+        </li>
+    {% endfor %}
+</ul>

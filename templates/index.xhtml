@@ -28,8 +28,6 @@
             </button>
         </div>
         <h2 class="text-2xl font-bold">List of running processes</h2>
-        {% autoescape false %}
-        {{ html_proc_list }}
-        {% endautoescape %}
+        {% include 'proc_list.xhtml' %}
     </body>
 </html>

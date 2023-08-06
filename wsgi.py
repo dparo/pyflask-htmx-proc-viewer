@@ -66,29 +66,14 @@ def get_procs():
 @app.get("/procs")
 def html_procs():
     procs = get_procs()
-    return render_template_string(
-        """
-        <ul class="list-disc" hx-get="/procs" hx-trigger="evProcListRefresh from:body" hx-swap="outerHTML">
-            {% for cmd in cmds %}
-                <li id="li-{{ cmd.pid }}">
-                    {% for signal in ['SIGTERM', 'SIGINT', 'SIGKILL'] %}
-                    <button hx-delete="/api/pid/{{ cmd.pid }}?signal={{ signal }}" hx-swap="outerHTML" hx-target="closest li"
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{{ signal }}</button>
-                    {% endfor %}
-                    {{ cmd.pid }} - {{ cmd.argv }}
-
-                </li>
-            {% endfor %}
-        </ul>
-        """,
-        cmds=procs["cmds"],
-    )
+    return render_template('proc_list.xhtml', cmds=procs['cmds'])
 
 
 @app.route("/")
 def index_route():
-    proc_list = html_procs()
+    procs = get_procs()
     refresh_time_msecs = 10000 * 1000
     return render_template(
-        "index.xhtml", html_proc_list=proc_list, refresh_time_msecs=refresh_time_msecs
+        "index.xhtml", refresh_time_msecs=refresh_time_msecs,
+        cmds=procs['cmds']
     )
