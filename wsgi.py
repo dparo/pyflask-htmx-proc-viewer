@@ -46,7 +46,7 @@ def new_cmd():
 @app.route("/api/procs")
 def get_procs():
     pids = list(filter(lambda x: x.isnumeric(), list(os.listdir("/proc"))))
-    pids = [int(x) for x in pids]
+    pids = sorted([int(x) for x in pids])
 
     cmds = []
     for p in pids:
@@ -63,14 +63,15 @@ def get_procs():
                         state_idx += 1
                     state = stat[state_idx + 1]
                     if state in ['R', 'S', 'I']: # Running, Sleeping, Idle
-                        print("STATE", state)
                         cmds.append(Proc(p, argv))
 
         except Exception:
             pass
 
+    # Bump the factor to simulate a huge list
+    cmds = cmds * 1
     return {
-        "cnt": len(pids),
+        "cnt": len(cmds),
         "cmds": cmds,
     }
 
