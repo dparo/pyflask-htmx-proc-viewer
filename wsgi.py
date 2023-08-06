@@ -68,7 +68,7 @@ def html_procs():
     procs = get_procs()
     return render_template_string(
         """
-        <ul class="list-disc" hx-get="/procs" hx-trigger="evProcListRefresh from:body">
+        <ul class="list-disc" hx-get="/procs" hx-trigger="evProcListRefresh from:body" hx-swap="outerHTML">
             {% for cmd in cmds %}
                 <li id="li-{{ cmd.pid }}">
                     {% for signal in ['SIGTERM', 'SIGINT', 'SIGKILL'] %}
