@@ -22,7 +22,7 @@ See this [Vue Docs paragraph](https://vuejs.org/guide/scaling-up/ssr.html#why-ss
 
 ## Preview
 
-![image](https://github.com/dparo/pyflask-htmx-proc-viewer/assets/30259883/12a366e4-7401-4796-845c-038107857c67)
+![image](https://github.com/dparo/pyflask-htmx-proc-viewer/assets/30259883/a841d461-6586-4f2b-97b1-0edb86deb4c5)
 
 
 ## Requirements
