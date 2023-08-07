@@ -12,12 +12,13 @@ Allows to:
 The HTML is rendered in the server (SSR) thanks to Flask. 
 Web page reactivity is achieved trough the usage of htmx.
 
-Htmx allows to hotswap snippets of HTML by invoking HTTP endpoints when specific events occur.
-Allowing the frontend application to be almost JS (except the HTMX runtime itself) and JSON free.
-By using Server Side Rendering (SSR), the latency required for first paint is reduced.
+Htmx allows to hotswap fragments of HTML by invoking HTTP endpoints when specific client events occur (user clicks on a button).
+This paradigm allows the webapp to be free of JSON and JS (except the HTMX runtime itself).
+By using Server Side Rendering (SSR), the latency required for Largest Contentful Paint (LCF) is reduced.
 
 The responsability of validation and styling, however, is completely shifted to the server.
 
+See this [Vue Docs paragraph](https://vuejs.org/guide/scaling-up/ssr.html#why-ssr) for the benefits of SSR.
 
 ## Preview
 
