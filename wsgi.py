@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import shlex
 
 from flask import (Flask, make_response, render_template,
-                   render_template_string, request, send_from_directory, Markup)
+                   render_template_string, request, send_from_directory, Markup, redirect)
 
 app = Flask(__name__)
 
@@ -82,3 +82,8 @@ def index_route():
         "index.xhtml", refresh_time_msecs=refresh_time_msecs,
         cmds=procs['cmds']
     )
+
+@app.route("/index")
+@app.route("/index.html")
+def index_redirect():
+    return redirect("/")
