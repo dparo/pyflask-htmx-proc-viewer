@@ -25,7 +25,7 @@ The responsibility of validation and styling, however, is shifted to the server.
 
 See this [Vue Docs paragraph](https://vuejs.org/guide/scaling-up/ssr.html#why-ssr) for the benefits of SSR.
 
-[Alpine.js](https://alpinejs.dev/), a HTML first client side model framework,
+[Alpine.js](https://alpinejs.dev/), an HTML-focused client side model framework,
 can aid in implementing interactivity for operations that are purely client side (eg: dropdowns, spinners, etc).
 
 
