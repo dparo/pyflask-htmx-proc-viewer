@@ -34,8 +34,9 @@ See this [Vue Docs paragraph](https://vuejs.org/guide/scaling-up/ssr.html#why-ss
 - HTMX to be scalable requires a strong HTML templating engine, or equivalently a programming language with DSL capabilities, to create reusable, parametrizable snippets of HTML (aka Components).
   Note that, in React land, this is achieved thanks to JSX.
   Python+(Flask/FastAPI/Django) provides a powerful templating engine [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) with support for even [templating inheritance](https://jinja.palletsprojects.com/en/3.1.x/templates/#template-inheritance).
-  Golang also provides in its standard a simpler and more pragmatic [templating engine](https://pkg.go.dev/html/template).
-  Rust can leverage DSL capabilities thanks to the usage of [macros](https://doc.rust-lang.org/book/ch19-06-macros.html). See for example [leptos::view!() macro](https://docs.rs/leptos/latest/leptos/macro.view.html)
+  Java+[Spring](https://spring.io/) can lavarage the [Thymeleaf](https://www.thymeleaf.org/) templating engine.
+  Golang also provides in its standard a simpler and more pragmatic [html templating engine](https://pkg.go.dev/html/template).
+  Rust can leverage DSL capabilities thanks to the usage of [macros](https://doc.rust-lang.org/book/ch19-06-macros.html), to provide a more JSX-like syntax. See for example [leptos::view!() macro](https://docs.rs/leptos/latest/leptos/macro.view.html)
 
 #### Solution
 [Alpine.js](https://alpinejs.dev/), an HTML-focused client side model framework, pairs nicely with [HTMX](https://htmx.org/).
