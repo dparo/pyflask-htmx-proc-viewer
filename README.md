@@ -25,9 +25,16 @@ It also provides a simpler alternative and breath of fresh air, from a software 
 
 See this [Vue Docs paragraph](https://vuejs.org/guide/scaling-up/ssr.html#why-ssr) for the benefits of SSR.
 
-### Future work
+
+### Disadvantages
+HTMX requires always a server up-and-running to serve the HTML fragments.
+Such solution may not be ideal for client-side heavy applications (eg: a painting/drawing application saving locally),
+A JS framework/bundle in these cases may be more appropriate, including for applications target at WebUI sandbox/distributions -- for example: [Electron](https://www.electronjs.org/), [NwJS](https://nwjs.io/).
+
+#### Solution
 [Alpine.js](https://alpinejs.dev/), an HTML-focused client side model framework, pairs nicely with [HTMX](https://htmx.org/).
-Alpine.js can aid in implementing state-management and interactivity for operations that are purely client side (eg: dropdowns, spinners, etc).
+Alpine.js can aid in implementing state-management and interactivity for operations that are purely client side (eg: dropdowns, spinners, searchboxes etc),
+where waiting a full RTT to the server to update the DOM would be costly or unnecessary.
 
 
 ## Preview
