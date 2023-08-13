@@ -15,7 +15,7 @@ Web page reactivity is achieved through the usage of htmx.
 Htmx enables the server to directly apply partial updates to the DOM.
 Partial updates are achieved by hotswapping fragments of HTML generated from the server,
 when specific client side events occurs (eg: user clicks on a button).
-This is contrast to traditional SPA frameworks (like React or Angular), where REST endpoints returns
+This is in contrast to traditional SPA frameworks (like React or Angular), where REST endpoints returns
 JSON objects (subject to schema constraints) which are then deserialized and used to update the DOM
 from within the JS browser runtime itself.
 HTMX, like any other Server Side Rendering (SSR) focused technologies,
