@@ -12,7 +12,7 @@ Allows to:
 The HTML is rendered in the server (SSR) thanks to Flask.
 Web page reactivity is achieved through the usage of htmx.
 
-HTMX is a declaritive client side JS-runtime which enables the server to directly influence the DOM through partial updates.
+HTMX is a declarative client side JS-runtime which enables the server to directly influence the DOM through partial updates.
 Partial updates are achieved by hotswapping fragments of HTML generated from the server,
 when specific client side events occurs (eg: user clicks on a button).
 HTMX places the returned HTML fragment in the DOM by following some rules specified within the HTML itself.
