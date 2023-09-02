@@ -52,6 +52,8 @@ SPAs do not suffer from this problem.
 In SSR, This can be fixed by using the modern [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) exposed from browsers,
 to animate/fade elements when transitioning from a page to another.
 
+For a hands down proof of concept, see this [example website](https://astro-records.pages.dev/album/2177412), written in [ASTRO](https://astro.build/) that uses SSR and the View Transition API.
+
 ## Preview
 
 ![image](https://github.com/dparo/pyflask-htmx-proc-viewer/assets/30259883/a841d461-6586-4f2b-97b1-0edb86deb4c5)
